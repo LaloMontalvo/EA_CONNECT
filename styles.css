@@ -1,0 +1,772 @@
+
+
+/*ESTOS SON LOS ESTILOS*/
+
+
+/* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/*BARRA DE NAVEGACION*/
+
+/* Estilos del menú de navegación */
+.navbar {
+    transition: background-color 0.4 ease-in-out, padding 0.3s ease-in-out;
+    padding: 0px 0;
+}
+
+/* Ajuste del padding para hacer la barra más delgada */
+.navbar {
+    padding: 1px; /* Reducido de 20px a 12px */
+}
+
+/* Cuando se hace scroll, se mantiene más delgada */
+.navbar.scrolled {
+    padding: 5px 0; /* Reducido para que se vea más compacta */
+}
+
+
+/* Transición suave para el menú */
+.navbar {
+    transition: background-color 0.5s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* Transición suave para los enlaces */
+.navbar .nav-link {
+    transition: color 0.3s ease-in-out;
+}
+
+/* Transición de la línea activa */
+.navbar-nav .nav-link.active::after {
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Efecto de deslizamiento en el menú al hacer scroll */
+.navbar.scrolled {
+    animation: fadeInDown 0.5s ease-in-out;
+}
+
+/* Animación de deslizamiento */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .navbar .nav-link {
+        font-size: 15px;
+    }
+}
+
+/* Estilos para los enlaces del menú */
+.navbar-nav .nav-link {
+    position: relative;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Color al pasar el mouse */
+.navbar-nav .nav-link:hover {
+    color: #ffcc00 !important; /* Cambia a amarillo */
+}
+
+/* Línea activa debajo de la sección actual */
+.navbar-nav .nav-link {
+    position: relative;
+    padding-bottom: 5px; /* Espacio para la línea */
+}
+
+/* Línea activa en pantallas grandes */
+.navbar-nav .nav-link.active::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffcc00; /* Línea amarilla */
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+/* Línea más corta en dispositivos pequeños */
+@media (max-width: 768px) {
+    .navbar-nav .nav-link.active::after {
+        width: 40%; /* Más corta en pantallas pequeñas */
+        height: 2px; /* Un poco más delgada */
+    }
+}
+
+
+
+
+/*BARRA DE NAVEGACION TRANSPARENTE*/
+
+
+/* Menú transparente (inicial) */
+.navbar.transparent {
+    background-color: transparent !important;
+    border: none;
+}
+
+
+/* Menú cuando se hace scroll */
+.navbar.scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white !important;
+    padding: 0px 0;
+    border-bottom: 2px solid black;
+}
+
+/* Color del texto en modo transparente */
+.navbar.transparent .nav-link,
+.navbar.transparent .navbar-brand {
+    color: white !important;
+}
+
+/* Color del texto cuando se hace scroll */
+.navbar.scrolled .nav-link,
+.navbar.scrolled .navbar-brand {
+    color: black !important;
+}
+
+
+/* Icono hamburguesa blanco en modo transparente */
+.navbar.transparent .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Icono hamburguesa negro cuando se hace scroll */
+.navbar.scrolled .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 30 30'%3e%3cpath stroke='black' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+
+/*LOGOTIPO*/
+
+
+/* Estilos base del logo */
+.logo {
+    transition: opacity 0.4s ease-in-out, height 0.4s ease-in-out;
+}
+
+/* Logo cuando la barra es transparente */
+.logo-transparent {
+    display: block;
+    height: 70px; /* Tamaño grande en modo transparente */
+}
+
+/* Logo cuando la barra cambia de color */
+.logo-scrolled {
+    display: none;
+    height: 110px; /* Tamaño más pequeño al hacer scroll */
+}
+
+/* Cuando el menú cambia al hacer scroll */
+.navbar.scrolled .logo-transparent {
+    display: none;
+}
+
+.navbar.scrolled .logo-scrolled {
+    display: block;
+}
+
+/* 🔹 Ajustes responsivos */
+@media (max-width: 768px) {
+    .logo-transparent {
+        height: 60px; /* Reducimos tamaño en móviles */
+    }
+    .logo-scrolled {
+        height: 90px; /* Más pequeño en móviles */
+    }
+}
+
+
+/* Cuando el menú cambia al hacer scroll */
+.navbar.scrolled .logo-transparent {
+    display: none;
+}
+
+.navbar.scrolled .logo-scrolled {
+    display: block;
+}
+
+
+/*IMAGEN DE PRESENTACION*/
+
+
+
+/* Imagen de presentación */
+.hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Imagen con tamaño completo */
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Capa oscura sobre la imagen */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Oscurece la imagen */
+}
+
+/* Estilos del título */
+.hero-title {
+    position: absolute;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    z-index: 2;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+}
+
+
+/*CONTENIDO DE LA PAGINA*/
+
+
+
+/* Contenido */
+.content {
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+/* Estilo para la sección de proyectos */
+.proyectos {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.proyectos h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.proyectos p {
+    font-size: 1.1rem;
+    color: #797979;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/*PIE DE PAGINA*/
+
+/* Estilos del Footer */
+.footer {
+    background-color: #222; /* Color oscuro */
+    color: white;
+    padding: 40px 0;
+}
+
+.footer-section h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Iconos de redes sociales */
+.social-icon i {
+    font-size: 35px;
+    color: white;
+    transition: transform 0.3s ease-in-out, color 0.3s;
+}
+
+.social-icon i:hover {
+    transform: scale(1.1);
+    color: #ffcc00; /* Cambia a amarillo al pasar el mouse */
+}
+
+/* Iconos de ubicación y teléfono */
+.icon {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+/* Responsive: centrar elementos en móviles */
+@media (max-width: 768px) {
+    .footer-section {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .footer-section.text-end {
+        text-align: center !important;
+    }
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Deshabilita el scroll cuando el modal está abierto */
+body.no-scroll {
+    overflow: hidden;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7); /* Hace el navbar más oscuro */
+    transition: background 0.3s ease-in-out;
+    z-index: 1050; /* Asegura que el navbar esté por debajo del modal */
+}
+
+.navbar a {
+    color: white !important;
+}
+
+/* Galería */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Contenedor de cada imagen y su texto */
+.gallery-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilo del texto de la imagen */
+.gallery-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    max-width: 90%;
+}
+
+/* Estilo de las imágenes */
+.gallery-item {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 15px;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1100; /* Asegura que el modal esté encima del navbar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor de la imagen */
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 60%;
+    max-height: 90%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Imagen del modal con ajuste dinámico */
+.modal img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+/* Botón de cerrar */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Botones de navegación */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .modal img {
+        width: 90%;
+    }
+
+    .prev, .next {
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    .modal-content {
+        max-width: 100%;
+    }
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* Estilo del texto de la imagen */
+.gallery-text {
+    font-size: 1.2rem; /* Tamaño base */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    max-width: 100%;
+}
+
+/* RESPONSIVIDAD */
+
+/* Para tablets (pantallas entre 768px y 1024px) */
+@media (max-width: 1024px) {
+    .gallery-text {
+        font-size: 1rem; /* Reduce ligeramente el tamaño */
+    }
+    
+    .small-text{
+        font-size: 1rem; /* Reduce ligeramente el tamaño */
+    }
+}
+
+/* Para móviles grandes (pantallas entre 480px y 768px) */
+@media (max-width: 768px) {
+    .gallery-text {
+        font-size: 0.9rem; /* Tamaño más pequeño en móviles grandes */
+    }
+
+    .small-text{
+        font-size: 0.8rem;
+    }
+
+
+}
+
+
+
+/* Para móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+    .gallery-text {
+        font-size: 0.8rem; /* Tamaño mínimo para pantallas pequeñas */
+    }
+}
+
+ 
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.stats-section {
+    width: 100%;
+    position: relative;
+    background-image: url('images/inicio/imageConteo.jpg'); /* Reemplaza con la URL de tu imagen de fondo */
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.stats-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Oscurece la imagen */
+    z-index: 1;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2; /* Asegura que los números estén por encima del fondo negro */
+}
+
+.stat-box {
+    margin: 20px;
+    flex: 1 1 30%;
+    max-width: 300px;
+}
+
+.stat-box h2 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.stat-box p {
+    font-size: 1.5em;
+}
+
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-box h2 {
+        font-size: 2em;
+        margin: 0;
+    }
+    
+    .stat-box p {
+        font-size: 1em;
+    }
+}
+
+/* Efecto de aparición con desplazamiento */
+.scroll-effect {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Cuando el elemento es visible en pantalla */
+.scroll-effect.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Tamaño por defecto para pantallas grandes */
+h1, h2 {
+    font-size: 2.5rem; /* Tamaño base */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1200px) {
+    h1, h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    h1, h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1, h2 {
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Alineación de los párrafos a la izquierda y responsivo */
+.seccion p {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 900px; /* Ajusta el ancho máximo */
+    width: 100%; /* Permite que se ajuste al 100% en pantallas pequeñas */
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .seccion p {
+        max-width: 100%; /* Se ajusta al 100% en pantallas más pequeñas */
+    }
+}
+
+
+/* Ajuste de padding lateral */
+.content {
+    width: 100%;  /* Ocupa todo el ancho disponible */
+    max-width: 1200px; /* Define un ancho máximo en pantallas grandes */
+    padding: 0 5%; /* Reduce el espacio lateral entre el texto y los bordes */
+    margin: 0 auto; /* Centra el contenido */
+}
+
+/* Ajuste para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .content {
+        padding: 0 3%; /* Aún menos padding en pantallas pequeñas */
+    }
+}
+
+/* Estilos generales */
+.seccion {
+    text-align: center;
+    padding: 40px 10px;
+}
+
+
+.titulo {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#Click{
+    font-size: 0.9rem;
+}
+
+/* Ajuste para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 2.4rem;
+    }
+}
+
+.descripcion {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+
+/* Animaciones al hacer scroll */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.seccion {
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+
+
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor de la imagen */
+.contenedor-imagen {
+    width: 80%; /* En pantallas grandes, deja márgenes a los lados */
+    max-width: 1200px; /* Limita el tamaño máximo */
+    margin: 50px auto; /* Margen arriba y abajo de 50px, centrado horizontalmente */
+}
+
+/* Imagen responsiva */
+.contenedor-imagen img {
+    width: 100%; /* La imagen se ajusta al contenedor */
+    height: auto; /* Mantiene la proporción */
+    display: block; /* Evita espacios adicionales debajo de la imagen */
+    border-radius: 10px; /* Opcional: bordes redondeados */
+}
+
+/* En pantallas pequeñas, la imagen ocupará todo el ancho */
+@media screen and (max-width: 768px) {
+    .contenedor-imagen {
+        width: 100%; /* Ocupará todo el ancho */
+        margin: 0; /* Sin márgenes */
+        margin: 50px auto;
+    }
+
+    .contenedor-imagen img {
+        border-radius: 0; /* Bordes normales en pantallas pequeñas */
+    }
+}
+
